@@ -9,6 +9,7 @@ use App\Livewire\Auth\Passwords\Reset;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Verify;
 use App\Livewire\Finance\Accounts;
+use App\Livewire\Finance\AddTransaction;
 use App\Livewire\Finance\Budget;
 use App\Livewire\Finance\Transactions;
 use App\Livewire\Health\Exercise;
@@ -17,7 +18,6 @@ use App\Livewire\Health\Metrics;
 use App\Livewire\Home\General;
 use App\Livewire\Home\Records;
 use App\Livewire\Home\Tasks;
-use Illuminate\Console\View\Components\Task;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 
+    Route::get('/finance/add_transaction', AddTransaction::class)->name('finance/add');
     Route::get('/finance/transactions', Transactions::class)->name('finance/transactions');
     Route::get('/finance/budget', Budget::class)->name('finance/budget');
     Route::get('/finance/accounts', Accounts::class)->name('finance/accounts');

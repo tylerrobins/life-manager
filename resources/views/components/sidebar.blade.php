@@ -1,5 +1,6 @@
 @php
    $finance = [
+       'Add' => '/finance/add_transaction',
        'Transactions' => '/finance/transactions',
        'Budget' => '/finance/budget',
        'Accounts' => '/finance/accounts',
@@ -22,5 +23,9 @@
       <x-sidebar-item name="Health" icon="health" :items="$health" />
       <x-sidebar-item name="Finance" icon="finance" :items="$finance" />
    </div>
-   <x-sidebar-item name="Logout" class="mb-5" link="/" />
+   <form method="POST" action="{{ route('logout') }}" class="border-t pb-3 pt-2">
+      @csrf
+      <button
+         class="w-full cursor-pointer rounded-lg py-2 text-base hover:text-lg hover:font-bold hover:text-blue-600 hover:underline">Logout</button>
+   </form>
 </nav>
