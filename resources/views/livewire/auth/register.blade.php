@@ -22,74 +22,12 @@
    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div class="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
          <form wire:submit.prevent="register">
-            <div>
-               <label for="name" class="block text-sm font-medium leading-5 text-gray-700">
-                  Name
-               </label>
-
-               <div class="mt-1 rounded-md shadow-sm">
-                  <input wire:model.lazy="name" id="name" type="text" required autofocus
-                     class="focus:ring-blue @error('name') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out focus:border-blue-300 focus:outline-none sm:text-sm sm:leading-5" />
-               </div>
-
-               @error('name')
-                  <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-               @enderror
-            </div>
-
-            <div class="mt-6">
-               <label for="name" class="block text-sm font-medium leading-5 text-gray-700">
-                  Home Name
-               </label>
-
-               <div class="mt-1 rounded-md shadow-sm">
-                  <input wire:model.lazy="home_name" id="home_name" type="text" required autofocus
-                     class="focus:ring-blue @error('home_name') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out focus:border-blue-300 focus:outline-none sm:text-sm sm:leading-5" />
-               </div>
-
-               @error('name')
-                  <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-               @enderror
-            </div>
-            <div class="mt-6">
-               <label for="email" class="block text-sm font-medium leading-5 text-gray-700">
-                  Email address
-               </label>
-
-               <div class="mt-1 rounded-md shadow-sm">
-                  <input wire:model.lazy="email" id="email" type="email" required
-                     class="focus:ring-blue @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out focus:border-blue-300 focus:outline-none sm:text-sm sm:leading-5" />
-               </div>
-
-               @error('email')
-                  <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-               @enderror
-            </div>
-
-            <div class="mt-6">
-               <label for="password" class="block text-sm font-medium leading-5 text-gray-700">
-                  Password
-               </label>
-
-               <div class="mt-1 rounded-md shadow-sm">
-                  <input wire:model.lazy="password" id="password" type="password" required
-                     class="focus:ring-blue @error('password') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out focus:border-blue-300 focus:outline-none sm:text-sm sm:leading-5" />
-               </div>
-
-               @error('password')
-                  <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-               @enderror
-            </div>
-
-            <div class="mt-6">
-               <label for="password_confirmation" class="block text-sm font-medium leading-5 text-gray-700">
-                  Confirm Password
-               </label>
-
-               <div class="mt-1 rounded-md shadow-sm">
-                  <input wire:model.lazy="passwordConfirmation" id="password_confirmation" type="password" required
-                     class="focus:ring-blue block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out focus:border-blue-300 focus:outline-none sm:text-sm sm:leading-5" />
-               </div>
+            <div class="flex flex-col space-y-6">
+               <x-forms.input name="name" label="Name" />
+               <x-forms.input name="home_name" label="Home" />
+               <x-forms.input name="email" label="Email Address" type="email" />
+               <x-forms.input name="password" label="Password" type="password" />
+               <x-forms.input name="password_confirmation" label="Confirm Password" type="password" />
             </div>
 
             <div class="mt-6">
