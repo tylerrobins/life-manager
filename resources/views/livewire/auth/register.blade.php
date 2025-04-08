@@ -26,8 +26,8 @@
                <x-forms.input name="name" label="Name" />
                <x-forms.input name="home_name" label="Home" />
                <x-forms.input name="email" label="Email Address" type="email" />
-               <x-forms.input name="password" label="Password" type="password" />
-               <x-forms.input name="password_confirmation" label="Confirm Password" type="password" />
+               <x-forms.input name="password" label="Password" />
+               <x-forms.input name="password_confirmation" label="Confirm Password" />
             </div>
 
             <div class="mt-6">

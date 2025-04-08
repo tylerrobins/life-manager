@@ -24,7 +24,7 @@ class Register extends Component
     public $password = '';
 
     /** @var string */
-    public $passwordConfirmation = '';
+    public $password_confirmation = '';
 
     public function register()
     {
@@ -32,13 +32,14 @@ class Register extends Component
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
             'home_name' => ['required'],
-            'password' => ['required', 'min:8', 'same:passwordConfirmation'],
+            'password' => ['required', 'min:8', 'same:password_confirmation'],
         ]);
 
         $user = User::create([
             'email' => $this->email,
             'name' => $this->name,
             'password' => Hash::make($this->password),
+            'profile_picture' => 'profile_pictures/default.svg'
         ]);
 
         $user->home()->create([

@@ -8,9 +8,13 @@
       </div>
    @endguest
    @auth
-      <div class="m-2 flex space-x-2 px-3 py-2">
-         <x-logo class="w-4" />
-         <h1>USER</h1>
+      <div x-data="{ open: false }" @mouseleave="open = false">
+         <button @mouseover="open = true"
+            class="m-2 flex space-x-2 rounded-xl border-2 border-transparent px-3 py-2 hover:border-blue-600 hover:font-bold hover:text-blue-600">
+            <h1>{{ Auth::user()->name }} </h1>
+            <img class="h-6 rounded-xl" src="{{ asset(Auth::user()->profile_picture) }}" />
+         </button>
+         <div x-show="open" @click.outside="open = false">Contents...</div>
       </div>
    @endauth
 </section>
