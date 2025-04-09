@@ -18,9 +18,11 @@
 @endphp
 
 <div>
-   <label for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700">
-      {{ $label }}
-   </label>
+   @isset($label)
+      <label for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700">
+         {{ $label }}
+      </label>
+   @endisset
 
    <input {{ $attributes($defaults) }} />
 

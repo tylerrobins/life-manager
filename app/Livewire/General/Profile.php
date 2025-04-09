@@ -4,13 +4,18 @@ namespace App\Livewire\General;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class Profile extends Component
 {
+    use WithFileUploads;
+
     public $name;
     public $email;
     public $profile_picture;
     public $home_name;
+
 
     public function mount()
     {
@@ -21,7 +26,21 @@ class Profile extends Component
         $this->home_name = $user->home->name ?? null;
     }
 
-    public function update() {}
+    public function update()
+    {
+        // ADD VALIDATION FOR FILE UPLOAD - ENSURE IT'S AN IMAGE
+
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        if ($this->profile_picture instanceof TemporaryUploadedFile) {
+            $path = $this->profile_picture->store('profile_pictures');
+            $user->profile_picture = $path;
+            $this->profile_picture = $path;
+        }
+
+        $user->save();
+    }
 
     public function render()
     {
