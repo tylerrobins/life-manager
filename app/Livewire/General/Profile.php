@@ -15,7 +15,8 @@ class Profile extends Component
     public $email;
     public $profile_picture;
     public $home_name;
-
+    public $user_count;
+    public $users;
 
     public function mount()
     {
@@ -24,6 +25,8 @@ class Profile extends Component
         $this->email = $user->email;
         $this->profile_picture = $user->profile_picture;
         $this->home_name = $user->home->name ?? null;
+        $this->users = $user->home->users;
+        $this->user_count = $this->users->count();
     }
 
     public function update()

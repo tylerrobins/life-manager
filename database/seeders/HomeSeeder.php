@@ -21,7 +21,7 @@ class HomeSeeder extends Seeder
             'name' => 'Tyler',
             'email' => 'tylerkingsley@gmail.com',
             'password' => Hash::make('password'),
-            'profile_picture' => 'profile_pictures/default.svg'
+            'profile_picture' => 'profile_pictures/yXfCGJj8Xk6wlNTmG2VEjVRPkrPiL6GoAqx9KXzT.jpg'
         ]);
     }
 }
