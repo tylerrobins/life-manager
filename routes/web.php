@@ -12,6 +12,7 @@ use App\Livewire\Finance\Accounts;
 use App\Livewire\Finance\AddTransaction;
 use App\Livewire\Finance\Budget;
 use App\Livewire\Finance\Transactions;
+use App\Livewire\General\Profile;
 use App\Livewire\Health\Exercise;
 use App\Livewire\Health\Food;
 use App\Livewire\Health\Metrics;
@@ -67,4 +68,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/home/general', General::class)->name('home/general');
     Route::get('/home/records', Records::class)->name('home/records');
     Route::get('/home/tasks', Tasks::class)->name('home/tasks');
+
+    Route::get('/profile', Profile::class)->name('profile');
 });

@@ -24,8 +24,8 @@
       <div class="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
          <form wire:submit.prevent="authenticate">
             <div class="flex flex-col space-y-6">
-               <x-forms.input name="email" type="email" label="Email Address" />
-               <x-forms.input name="password" type="password" label="Password" />
+               <x-forms.input name="email" type="email" label="Email Address" class="shadow-md" />
+               <x-forms.input name="password" type="password" label="Password" class="shadow-md" />
             </div>
 
             <div class="mt-6 flex items-center justify-between">

@@ -11,4 +11,9 @@ class Home extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'icon'];
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

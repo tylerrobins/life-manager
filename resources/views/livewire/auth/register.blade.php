@@ -23,11 +23,11 @@
       <div class="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
          <form wire:submit.prevent="register">
             <div class="flex flex-col space-y-6">
-               <x-forms.input name="name" label="Name" />
-               <x-forms.input name="home_name" label="Home" />
-               <x-forms.input name="email" label="Email Address" type="email" />
-               <x-forms.input name="password" label="Password" />
-               <x-forms.input name="password_confirmation" label="Confirm Password" />
+               <x-forms.input name="name" label="Name" class="shadow-md" />
+               <x-forms.input name="home_name" label="Home" class="shadow-md" />
+               <x-forms.input name="email" label="Email Address" type="email" class="shadow-md" />
+               <x-forms.input name="password" label="Password" class="shadow-md" />
+               <x-forms.input name="password_confirmation" label="Confirm Password" class="shadow-md" />
             </div>
 
             <div class="mt-6">

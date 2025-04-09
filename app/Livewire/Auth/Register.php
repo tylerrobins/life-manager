@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\Home;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -35,16 +36,22 @@ class Register extends Component
             'password' => ['required', 'min:8', 'same:password_confirmation'],
         ]);
 
-        $user = User::create([
+        $home = Home::create(['name' => $this->home_name,]);
+        $user = $home->users()->create([
             'email' => $this->email,
             'name' => $this->name,
             'password' => Hash::make($this->password),
-            'profile_picture' => 'profile_pictures/default.svg'
+            'profile_picture' => 'profile_pictures/default.svg',
+            'home_id' => $home->id,
         ]);
 
-        $user->home()->create([
-            'name' => $this->home_name,
-        ]);
+        /*$user = User::create([
+            'email' => $this->email,
+            'name' => $this->name,
+            'password' => Hash::make($this->password),
+            'profile_picture' => 'profile_pictures/default.svg',
+            'home_id' => $home->id,
+        ]);*/
 
         event(new Registered($user));
 
