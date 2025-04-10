@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Health\Height;
+use App\Models\Health\Weight;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -51,5 +54,25 @@ class User extends Authenticatable
     public function home()
     {
         return $this->belongsTo(Home::class);
+    }
+
+    public function weights()
+    {
+        return $this->hasMany(Weight::class);
+    }
+
+    public function heights()
+    {
+        return $this->hasMany(Height::class);
+    }
+
+    public function latestWeight()
+    {
+        return $this->hasOne(Weight::class)->latestOfMany();
+    }
+
+    public function latestHeight()
+    {
+        return $this->hasOne(Height::class)->latestOfMany();
     }
 }

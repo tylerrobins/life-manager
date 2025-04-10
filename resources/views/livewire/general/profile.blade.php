@@ -28,7 +28,7 @@
                   </div>
                   <div class="flex-1/2 flex flex-col space-y-4 pl-3">
                      <h2 class="text-lg font-semibold text-gray-600">Home</h2>
-                     <div class="flex space-x-4">
+                     <div class="flex flex-col space-x-4 sm:space-y-5 xl:flex-row">
                         <x-forms.input name="home_name" label="Name" class="bg-neutral-100" />
                         <div>
                            <label for="userCount"
@@ -67,7 +67,18 @@
             <div class="rounded-xl bg-white p-6">
                <img class="mx-auto w-52 rounded-full" src="{{ $profilePictureUrl }}" />
 
-               <x-forms.input name="profile_picture" type="file" class="mx-auto mt-4 max-w-56" />
+               <x-forms.input name="profile_picture" type="file" class="mx-auto mt-4 max-w-56 bg-neutral-100" />
+            </div>
+            <div class="mt-5 rounded-xl bg-white p-6">
+               <h3 class="border-b border-neutral-200 pb-2 text-base font-semibold text-gray-600">Metrics</h3>
+               <div class="mt-2 flex items-center">
+                  <p class="flex-1">Height:</p>
+                  <x-display-div>{{ $height }}</x-display-div>
+               </div>
+               <div class="mt-2 flex items-center">
+                  <p class="flex-1">Weight:</p>
+                  <x-display-div>{{ $weight }}</x-display-div>
+               </div>
             </div>
          </div>
       </div>

@@ -17,6 +17,8 @@ class Profile extends Component
     public $home_name;
     public $user_count;
     public $users;
+    public $weight;
+    public $height;
 
     public function mount()
     {
@@ -27,6 +29,8 @@ class Profile extends Component
         $this->home_name = $user->home->name ?? null;
         $this->users = $user->home->users;
         $this->user_count = $this->users->count();
+        $this->height = $user->latestHeight?->height ? $user->latestHeight->height . ' cm' : '';
+        $this->weight = $user->latestWeight?->weight ? $user->latestWeight->weight . ' kg' : '';
     }
 
     public function update()
