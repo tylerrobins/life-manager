@@ -10,9 +10,9 @@
       </div>
    @endguest
    @auth
-      <x-hover class="m-2 flex space-x-2 rounded-xl px-3 py-3">
-         <h1>{{ $user->name }}</h1>
-         <img src="{{ asset($user->profile_picture) }}" alt="profile picture" class="h-6 rounded-xl">
+      <x-hover class="m-2 flex space-x-2 rounded-xl px-3 py-2">
+         <h1 class="my-auto h-fit">{{ $user->name }}</h1>
+         <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="profile picture" class="h-7 rounded-2xl">
 
          <x-slot:content class="right-5 -mt-4 w-40 bg-white py-1">
             <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:text-blue-600"

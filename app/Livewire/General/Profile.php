@@ -46,7 +46,10 @@ class Profile extends Component
             $user->profile_picture = $path;
             $this->profile_picture = $path;
         }
-
+        $user->name = $this->name;
+        $user->email = $this->email;
+        $user->home->name = $this->home_name;
+        $user->home->save();
         $user->save();
     }
 
