@@ -9,8 +9,14 @@
 @endphp
 
 <div class="h-full">
-   <x-app.update-form>
-      <x-slot:heading>{{ $name }}'s Profile</x-slot:heading>
+   <form wire:submit.prevent="update">
+      <div class="mb-4 flex">
+         <x-header>{{ $name }}'s Profile</x-header>
+         <div class="space-x-2">
+            <x-button variant="blue" class="px-4">Save</x-button>
+            <x-button variant="white">Cancel</x-button>
+         </div>
+      </div>
       <div class="flex space-x-5">
          <div class="flex-1">
             <div class="rounded-xl bg-white p-5 pb-6">
@@ -74,5 +80,5 @@
       <div>
          <h1>Test</h1>
       </div>
-   </x-app.update-form>
+      </-app.update-form>
 </div>
