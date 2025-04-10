@@ -10,16 +10,11 @@
       </div>
    @endguest
    @auth
-      <div x-data="{ open: false }" @mouseleave="open = false">
-         <div @mouseover="open = true" class="m-2 flex space-x-2 rounded-xl border-2 border-transparent px-3 py-2">
-            <h1>{{ $user->name }} </h1>
-            <img class="h-6 rounded-xl" src="{{ asset($user->profile_picture) }}" />
-         </div>
-         <div x-show="open" @click.outside="open = false"
-            class="focus:outline-hidden absolute right-5 z-10 -mt-4 w-40 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5"
-            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1"
-            x-transition.duration.300ms>
-            <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
+      <x-hover class="m-2 flex space-x-2 rounded-xl px-3 py-3">
+         <h1>{{ $user->name }}</h1>
+         <img src="{{ asset($user->profile_picture) }}" alt="profile picture" class="h-6 rounded-xl">
+
+         <x-slot:content class="right-5 -mt-4 w-40 bg-white py-1">
             <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:text-blue-600"
                role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:text-blue-600" role="menuitem"
@@ -28,7 +23,7 @@
                @csrf
                <button class="block px-4 py-2 text-sm text-gray-700 hover:text-blue-600">Sign Out</button>
             </form>
-         </div>
-      </div>
+         </x-slot:content>
+      </x-hover>
    @endauth
 </section>

@@ -23,8 +23,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
 
-Route::view('/app', 'app')->name('app');
-
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');
@@ -55,6 +53,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', LogoutController::class)
         ->name('logout');
+
+    Route::view('/app', 'app')->name('app');
 
     Route::get('/finance/add_transaction', AddTransaction::class)->name('finance/add');
     Route::get('/finance/transactions', Transactions::class)->name('finance/transactions');
