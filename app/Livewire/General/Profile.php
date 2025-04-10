@@ -3,6 +3,7 @@
 namespace App\Livewire\General;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
@@ -49,7 +50,7 @@ class Profile extends Component
         $user->save();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.general.profile')->extends('layouts.app');
     }
