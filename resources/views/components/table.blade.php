@@ -1,11 +1,19 @@
-@props(['headers', 'rows'])
+@props(['headers' => null, 'rows'])
 
-<table class="table-auto">
+@php
+   $rawRow = $rows[0] ?? [];
+   $rawRowArray =
+       is_object($rawRow) && method_exists($rawRow, 'getAttributes') ? $rawRow->getAttributes() : (array) $rawRow;
+
+   $fields = $headers ? array_values($headers) : array_keys($rawRowArray);
+@endphp
+
+<table {{ $attributes(['class' => 'table-auto text-center']) }}>
    @isset($headers)
       <thead>
          <tr>
-            @foreach ($headers as $header)
-               <th>{{ $header }}</th>
+            @foreach ($headers as $label => $field)
+               <th>{{ $label }}</th>
             @endforeach
          </tr>
       </thead>
@@ -13,9 +21,11 @@
    @isset($rows)
       <tbody>
          @foreach ($rows as $row)
-            <tr>
-               @foreach ($row as $item)
-                  <td>{{ $item }}</td>
+            <tr class="">
+               @foreach ($fields as $field)
+                  <td class="p-1">
+                     {{ is_array($row) ? $row[$field] : $row->$field }}
+                  </td>
                @endforeach
             </tr>
          @endforeach

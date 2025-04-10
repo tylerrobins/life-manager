@@ -9,25 +9,19 @@
 @endphp
 
 <div class="h-full">
-   <form wire:submit.prevent="update" class="">
-      <div class="mb-5 flex">
-         <h1 class="flex-1 pl-2 pt-1 text-xl font-bold">{{ $name }}'s Profile</h1>
-         <div class="space-x-2">
-            <x-button variant="blue" class="px-4">Save</x-button>
-            <x-button variant="white">Cancel</x-button>
-         </div>
-      </div>
+   <x-app.update-form>
+      <x-slot:heading>{{ $name }}'s Profile</x-slot:heading>
       <div class="flex space-x-5">
          <div class="flex-1">
             <div class="rounded-xl bg-white p-5 pb-6">
                <div class="flex">
                   <div class="flex-1/2 flex flex-col space-y-4 border-r border-neutral-200 pr-3">
-                     <h2 class="text-lg font-semibold text-gray-600">Details</h2>
+                     <x-sub-header>Details</x-sub-header>
                      <x-forms.input name="name" label="Name" class="bg-neutral-100" />
                      <x-forms.input name="email" label="Email address" class="bg-neutral-100" />
                   </div>
                   <div class="flex-1/2 flex flex-col space-y-4 pl-3">
-                     <h2 class="text-lg font-semibold text-gray-600">Home</h2>
+                     <x-sub-header>Home</x-sub-header>
                      <div class="flex flex-col space-x-4 sm:space-y-4 xl:flex-row">
                         <x-forms.input name="home_name" label="Name" class="bg-neutral-100" />
                         <div>
@@ -65,14 +59,14 @@
                <x-forms.input name="profile_picture" type="file" class="mx-auto mt-4 max-w-56 bg-neutral-100" />
             </div>
             <div class="mt-5 rounded-xl bg-white p-6">
-               <h3 class="border-b border-neutral-200 pb-2 text-base font-semibold text-gray-600">Metrics</h3>
-               <div class="mt-2 flex items-center">
+               <x-sub-header divider>Metrics</x-sub-header>
+               <div class="flex items-center">
                   <p class="flex-1">Height:</p>
-                  <x-display-div>{{ $height }}</x-display-div>
+                  <x-display-div>{{ $latestHeight }}</x-display-div>
                </div>
                <div class="mt-2 flex items-center">
                   <p class="flex-1">Weight:</p>
-                  <x-display-div>{{ $weight }}</x-display-div>
+                  <x-display-div>{{ $latestWeight }}</x-display-div>
                </div>
             </div>
          </div>
@@ -80,7 +74,5 @@
       <div>
          <h1>Test</h1>
       </div>
-</div>
-</form>
-</div>
+   </x-app.update-form>
 </div>
