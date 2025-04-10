@@ -18,12 +18,15 @@ class Profile extends Component
     public $home_name;
     public $user_count;
     public $users;
-    public $weight;
+
     public $height;
+    public $weight;
 
     public function mount()
     {
+        /** @var \App\Models\User $user */
         $user = Auth::user();
+
         $this->name = $user->name;
         $this->email = $user->email;
         $this->profile_picture = $user->profile_picture;
@@ -55,6 +58,7 @@ class Profile extends Component
 
     public function render(): View
     {
+
         return view('livewire.general.profile')->extends('layouts.app');
     }
 }

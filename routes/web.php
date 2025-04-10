@@ -16,6 +16,7 @@ use App\Livewire\General\Profile;
 use App\Livewire\Health\Exercise;
 use App\Livewire\Health\Food;
 use App\Livewire\Health\Metrics;
+use App\Livewire\Health\Weight;
 use App\Livewire\Home\General;
 use App\Livewire\Home\Records;
 use App\Livewire\Home\Tasks;
@@ -63,7 +64,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/health/exercise', Exercise::class)->name('health/exercise');
     Route::get('/health/food', Food::class)->name('health/food');
-    Route::get('/health/metrics', Metrics::class)->name('health/metrics');
+    route::get('/health/metrics', Metrics::class)->name('health/metrics');
+    route::get('/health/weight', Weight::class)->name('health/weight');
 
     Route::get('/home/general', General::class)->name('home/general');
     Route::get('/home/records', Records::class)->name('home/records');

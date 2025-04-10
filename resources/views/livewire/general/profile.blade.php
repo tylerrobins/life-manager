@@ -41,7 +41,7 @@
                                  <img src="{{ asset('icons/information-icon.svg') }}" alt="information icon"
                                     class="mx-2">
                                  <x-slot:content class="right-5 -mt-2 bg-white">
-                                    <div class="flex flex-col space-y-3 px-4 py-2">
+                                    <div class="flex flex-col space-y-3 px-4 py-4">
                                        @foreach ($users as $user)
                                           <p class="border-b border-neutral-200 px-1 pb-1">{{ $user->name }}</p>
                                        @endforeach

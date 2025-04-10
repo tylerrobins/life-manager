@@ -14,6 +14,7 @@
        'Exercise' => '/health/exercise',
        'Food' => '/health/food',
        'Metrics' => '/health/metrics',
+       'Weight' => '/health/weight',
    ];
 @endphp
 

@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Models\Health\Height;
 use App\Models\Health\Weight;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
