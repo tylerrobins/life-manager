@@ -4,12 +4,18 @@ namespace App\Livewire\Health;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Weight extends Component
 {
+    use WithPagination;
+
     public $latestWeight;
 
-    public function mount() {}
+    public function mount()
+    {
+        $this->latestWeight = '123';
+    }
 
     public function render()
     {
@@ -25,5 +31,8 @@ class Weight extends Component
         Auth::user()->weights()->create([
             'weight' => $this->latestWeight,
         ]);
+
+        $this->reset(['latestWeight']);
+        $this->resetPage();
     }
 }
