@@ -7,19 +7,23 @@ use Livewire\Component;
 
 class Weight extends Component
 {
-    public $weights;
     public $latestWeight;
 
-    public function mount()
-    {
-        $user = Auth::user();
-        $this->weights = $user->weights;
-        $this->latestWeight = $user->latestWeight->weight ?? null;
-    }
+    public function mount() {}
 
     public function render()
     {
+        $weights = Auth::user()->weights()->latest()->paginate(10);
+        return view('livewire.health.weight', ['weights' => $weights])->extends('layouts.app');
+    }
 
-        return view('livewire.health.weight')->extends('layouts.app');
+    public function update()
+    {
+        $this->validate([
+            'latestWeight' => ['required']
+        ]);
+        Auth::user()->weights()->create([
+            'weight' => $this->latestWeight,
+        ]);
     }
 }

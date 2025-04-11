@@ -8,6 +8,9 @@ use App\Models\Health\Height;
 use App\Models\Health\Weight;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -52,27 +55,27 @@ class User extends Authenticatable
         ];
     }
 
-    public function home()
+    public function home(): BelongsTo
     {
         return $this->belongsTo(Home::class);
     }
 
-    public function weights()
+    public function weights(): HasMany
     {
         return $this->hasMany(Weight::class);
     }
 
-    public function heights()
+    public function heights(): HasMany
     {
         return $this->hasMany(Height::class);
     }
 
-    public function latestWeight()
+    public function latestWeight(): HasOne
     {
         return $this->hasOne(Weight::class)->latestOfMany();
     }
 
-    public function latestHeight()
+    public function latestHeight(): HasOne
     {
         return $this->hasOne(Height::class)->latestOfMany();
     }
